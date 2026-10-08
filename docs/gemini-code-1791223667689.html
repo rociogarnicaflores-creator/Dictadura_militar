@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictadura Militar en Chile, Música y Simbolismo de One Piece</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts & Custom CSS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070a12;
+            color: #e2e8f0;
+        }
+
+        h1, h2, h3, .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        .gradient-hero {
+            background: linear-gradient(180deg, rgba(7, 10, 18, 0.4) 0%, rgba(7, 10, 18, 0.95) 85%, #070a12 100%);
+        }
+
+        .red-glow {
+            box-shadow: 0 0 30px rgba(225, 29, 72, 0.2);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 30px rgba(234, 179, 8, 0.2);
+        }
+
+        .sky-glow {
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.2);
+        }
+
+        /* ANIMACIÓN DE SALTO DE CHOPPER */
+        @keyframes chopperJump {
+            0% { transform: translateY(0) scale(1); }
+            30% { transform: translateY(-30px) scale(1.15) rotate(-8deg); }
+            50% { transform: translateY(-40px) scale(1.2) rotate(8deg); }
+            75% { transform: translateY(-10px) scale(1.05); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        .animate-chopper-jump {
+            animation: chopperJump 0.6s ease-in-out !important;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e11d48;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-rose-900 selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3 group">
+                <!-- CHOPPER EN EL NAV -->
+                <img src="OFF/one-piece-logo.png" 
+                     alt="One Piece Logo" 
+                     class="chopper-interactive h-10 object-contain cursor-pointer transition-transform hover:scale-110" 
+                     ondblclick="makeChopperJump(this)"
+                     title="¡Haz doble clic para que Chopper salte!"
+                     onerror="this.style.display='none'">
+                <span class="font-cinzel text-base md:text-xl font-bold text-amber-400 tracking-wider">RESISTENCIA, MEMORIA & LIBERTAD</span>
+            </a>
+            <div class="hidden lg:flex space-x-6 text-xs font-semibold text-slate-300">
+                <a href="#allende-historia" class="hover:text-amber-400 transition">Allende y la UP</a>
+                <a href="#intervencion-eeuu" class="hover:text-amber-400 transition">Intervención EE.UU.</a>
+                <a href="#golpe-dictadura" class="hover:text-amber-400 transition">Golpe y Dictadura</a>
+                <a href="#musica-resistencia" class="hover:text-amber-400 transition">Música de Resistencia</a>
+                <a href="#one-piece-simbolismo" class="hover:text-amber-400 transition">Simbolismo One Piece</a>
+                <a href="#peor-generacion" class="hover:text-amber-400 transition">La Peor Generación</a>
+                <a href="#cuestionario" class="hover:text-amber-400 transition">Cuestionario</a>
+            </div>
+            <!-- Mobile nav button -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-300 hover:text-white text-xl" aria-label="Abrir menú de navegación">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden flex-col space-y-3 pt-4 pb-2 px-2 text-sm font-medium border-t border-slate-800 mt-2">
+            <a href="#allende-historia" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-400">Allende y la UP</a>
+            <a href="#intervencion-eeuu" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-400">Intervención EE.UU.</a>
+            <a href="#golpe-dictadura" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-400">Golpe y Dictadura</a>
+            <a href="#musica-resistencia" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-400">Música de Resistencia</a>
+            <a href="#one-piece-simbolismo" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-400">Simbolismo One Piece</a>
+            <a href="#peor-generacion" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-400">La Peor Generación</a>
+            <a href="#cuestionario" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-400">Cuestionario</a>
+        </div>
+    </nav>
+
+    <header class="relative min-h-[85vh] flex items-center justify-center text-center px-4 py-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="OFF/4.jpeg" alt="Bandera One Piece Protesta" class="w-full h-full object-cover opacity-25 filter blur-[2px] scale-105" onerror="this.src='https://placehold.co/1920x1080/0f172a/e2e8f0?text=Memoria+y+Resistencia'">
+            <div class="gradient-hero absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto space-y-6">
+            <div class="inline-flex items-center space-x-2 bg-rose-950/80 border border-rose-500/40 text-rose-300 text-xs md:text-sm px-4 py-1.5 rounded-full font-semibold tracking-wider uppercase">
+                <i class="fa-solid fa-flag text-rose-400"></i>
+                <span>Memoria Histórica & Análisis Cultural</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight">
+                DICTADURA MILITAR EN CHILE, MÚSICA Y EL SIMBOLISMO DE <span class="text-amber-400">ONE PIECE</span>
+            </h1>
+            <p class="text-slate-300 text-base md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                Un recorrido profundo desde la vía chilena al socialismo de Salvador Allende, el boicot extranjero y el golpe militar de 1973, hasta la música de resistencia popular, el rol de las comunidades y la bandera del Sombrero de Paja como símbolo global de lucha por la justicia.
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#allende-historia" class="bg-gradient-to-r from-amber-500 to-rose-600 text-white font-bold px-8 py-3.5 rounded-xl hover:opacity-90 transition transform hover:-translate-y-0.5 red-glow flex items-center space-x-2">
+                    <span>Explorar Historia</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#cuestionario" class="bg-slate-900 border border-slate-700 hover:border-amber-400 text-amber-300 font-bold px-8 py-3.5 rounded-xl transition flex items-center space-x-2">
+                    <span>Cuestionario Interactivo</span>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-12 space-y-28">
+
+        <!-- CAPÍTULO I -->
+        <section id="allende-historia" class="scroll-mt-24 space-y-8">
+            <div class="border-l-4 border-amber-500 pl-4">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Capítulo I</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white">Salvador Allende y la Unidad Popular</h2>
+                <p class="text-slate-400 text-sm md:text-base mt-1">El proyecto democrático de la "Vía Chilena al Socialismo" (1970–1973)</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
+                    <p>
+                        En septiembre de 1970, el médico y político socialista <strong>Salvador Allende Gossens</strong> fue elegido presidente de Chile al mando de la <strong>Unidad Popular (UP)</strong>. Su gobierno propuso una experiencia inédita a nivel mundial: la construcción de una sociedad socialista a través de las vías institucionales y democráticas, respetando las libertades civiles y la constitución vigente.
+                    </p>
+                    <p>
+                        La propuesta de Allende buscaba transformar radicalmente la estructura socioeconómica del país, caracterizada por profundas desigualdades, latifundios agrícolas y la dependencia de corporaciones mineras multinacionales.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 pl-2">
+                        <li><strong class="text-amber-400">Nacionalización del Cobre:</strong> Aprobada unánimemente por el Congreso Nacional en 1971 ("Día de la Dignidad Nacional"), recuperando el control estatal sobre la principal riqueza minera del país.</li>
+                        <li><strong class="text-amber-400">Reforma Agraria:</strong> Profundización del proceso de expropiación y redistribución de tierras para beneficiar a campesinos e indígenas históricamente postergados.</li>
+                        <li><strong class="text-amber-400">Derechos Sociales e Infancia:</strong> Implementación del programa de medio litro de leche diario para todos los niños chilenos, junto con la democratización del acceso a la salud y la universidad pública.</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 p-2 gold-glow">
+                        <img src="OFF/Allende.jpg" alt="Salvador Allende dando un discurso" class="w-full h-80 object-cover rounded-xl" onerror="this.src='https://placehold.co/800x600/0f172a/e2e8f0?text=Salvador+Allende'">
+                        <p class="text-xs text-slate-400 p-3 italic text-center">Presidente Salvador Allende dirigiéndose al pueblo chileno durante la vigencia de la Unidad Popular.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/60 rounded-2xl border border-slate-800 overflow-hidden p-3 space-y-3">
+                <img src="OFF/dictadura.jpg" alt="Marcha masiva de trabajadores apoyando a Allende" class="w-full h-72 md:h-96 object-cover rounded-xl" onerror="this.src='https://placehold.co/1200x600/0f172a/e2e8f0?text=Marcha+Popular+Chile'">
+                <p class="text-xs md:text-sm text-slate-400 text-center italic">
+                    Manifestaciones multitudinarias de trabajadores, obreros municipales y gremios en respaldo al gobierno constitucional de Allende.
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO II -->
+        <section id="intervencion-eeuu" class="scroll-mt-24 space-y-8">
+            <div class="border-l-4 border-rose-600 pl-4">
+                <span class="text-xs font-bold text-rose-500 uppercase tracking-widest">Capítulo II</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white">La Intervención de EE.UU. y el Sabotaje Económico</h2>
+                <p class="text-rose-400 text-sm md:text-base mt-1">Guerra Fría, la CIA y la estrategia de "Hacer Chillar la Economía"</p>
+            </div>
+
+            <div class="bg-slate-900/80 rounded-3xl p-6 md:p-10 border border-rose-500/30 red-glow space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-950/80 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-rose-950 border border-rose-500/40 flex items-center justify-center text-rose-400 text-xl font-bold">
+                            <i class="fa-solid fa-land-mine-on"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Richard Nixon & Kissinger</h3>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
+                            Documentos desclasificados en Washington prueban la orden explícita del presidente Richard Nixon y su secretario de Estado Henry Kissinger al director de la CIA, Richard Helms, de <i>"hacer chillar la economía chilena"</i> para forzar la caída del gobierno de Allende.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-950/80 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-rose-950 border border-rose-500/40 flex items-center justify-center text-rose-400 text-xl font-bold">
+                            <i class="fa-solid fa-sack-xmark"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Bloqueo Invisible</h3>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
+                            Se promovió un embargo de créditos internacionales, retención de maquinaria clave, bloqueo a las exportaciones de cobre y desabastecimiento artificial que provocó hiperinflación y acaparamiento.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-950/80 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-rose-950 border border-rose-500/40 flex items-center justify-center text-rose-400 text-xl font-bold">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Financiamiento Interno</h3>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
+                            La CIA inyectó millones de dólares para financiar paros patronales (como el paro de camioneros), medios impresos de oposición y grupos armados de extrema derecha como <i>Patria y Libertad</i>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO III -->
+        <section id="golpe-dictadura" class="scroll-mt-24 space-y-8">
+            <div class="border-l-4 border-slate-500 pl-4">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Capítulo III</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white">El Golpe de Estado y la Dictadura Militar</h2>
+                <p class="text-slate-400 text-sm md:text-base mt-1">11 de septiembre de 1973 – 11 de marzo de 1990</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 p-2">
+                        <img src="OFF/2.webp" alt="Tropas rodeando La Moneda bombardeada" class="w-full h-80 object-cover rounded-xl" onerror="this.src='https://placehold.co/800x600/0f172a/e2e8f0?text=Allende+en+La+Moneda'">
+                        <p class="text-xs text-slate-400 p-2 italic text-center">Militares desplegados durante el Golpe de Estado en la Moneda el 11 de septiembre de 1973.</p>
+                    </div>
+                </div>
+                <div class="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
+                    <h3 class="text-2xl font-bold text-amber-400">El Bombardeo a La Moneda</h3>
+                    <p>
+                        La mañana del <strong>11 de septiembre de 1973</strong>, las Fuerzas Armadas y Carabineros, encabezadas por el general Augusto Pinochet, ejecutaron un sanguinario Golpe de Estado. Aviones Hawker Hunter bombardearon el Palacio de La Moneda, destruyendo la sede del gobierno republicano.
+                    </p>
+                    <p>
+                        Antes de morir defendiendo el palacio en llamas, Salvador Allende emitió su último y memorable mensaje por Radio Magallanes:
+                    </p>
+                    <blockquote class="border-l-2 border-amber-500 pl-4 italic text-amber-200 text-xs md:text-sm bg-slate-900/60 p-3 rounded-r-xl">
+                        "Trabajadores de mi patria: tengo fe en Chile y su destino. Superarán otros hombres el momento gris y amargo donde la traición pretende imponerse. Sigan ustedes sabiendo que, mucho más temprano que tarde, de nuevo se abrirán las grandes alamedas por donde pase el hombre libre..."
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/80 rounded-2xl border border-slate-800 overflow-hidden p-3 space-y-2">
+                    <img src="OFF/2.webp" alt="Tropas rodeando La Moneda bombardeada" class="w-full h-64 object-cover rounded-xl" onerror="this.src='https://placehold.co/800x500/0f172a/e2e8f0?text=Bombardeo+La+Moneda'">
+                    <p class="text-xs text-slate-400 italic text-center">Militares apostados frente al Palacio de La Moneda consumida por las llamas el 11 de septiembre.</p>
+                </div>
+                <div class="bg-slate-900/80 rounded-2xl border border-slate-800 overflow-hidden p-3 space-y-2">
+                    <img src="OFF/3.webp" alt="Detenciones masivas y represión militar" class="w-full h-64 object-cover rounded-xl" onerror="this.src='https://placehold.co/800x500/0f172a/e2e8f0?text=Detenciones+Masivas'">
+                    <p class="text-xs text-slate-400 italic text-center">Detenciones masivas de civiles a manos de las tropas golpistas durante los primeros días del régimen.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/60 rounded-3xl p-6 md:p-8 border border-slate-800 space-y-6">
+                <h3 class="text-2xl font-bold text-white">Estructura Represiva y Red Transnacional</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-300">
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                        <h4 class="font-bold text-rose-400 flex items-center space-x-2">
+                            <i class="fa-solid fa-skull"></i>
+                            <span>DINA y CNI</span>
+                        </h4>
+                        <p class="text-xs leading-relaxed">
+                            Organismos secretos de inteligencia militar dirigidos por Manuel Contreras que crearon centros clandestinos de detención y tortura como Villa Grimaldi, Londres 38 y Tejas Verdes.
+                        </p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                        <h4 class="font-bold text-amber-400 flex items-center space-x-2">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <span>Operación Cóndor</span>
+                        </h4>
+                        <p class="text-xs leading-relaxed">
+                            Red clandestina de coordinación represiva entre las dictaduras del Cono Sur (Chile, Argentina, Brasil, Uruguay, Paraguay y Bolivia) para perseguir, secuestrar y asesinar opositores transfronterizos.
+                        </p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                        <h4 class="font-bold text-sky-400 flex items-center space-x-2">
+                            <i class="fa-solid fa-file-contract"></i>
+                            <span>Constitución de 1980</span>
+                        </h4>
+                        <p class="text-xs leading-relaxed">
+                            Diseñada bajo la supervisión de Jaime Guzmán para institucionalizar el modelo neoliberal privatizador, restringir la participación política y blindar a las Fuerzas Armadas mediante enclaves autoritarios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resistencia Civil y Transición -->
+            <div class="bg-slate-900/80 rounded-3xl p-6 md:p-8 border border-slate-800 space-y-6">
+                <h3 class="text-2xl font-bold text-white">Resistencia Poblacional y Transición Democrática</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-amber-400">Organizaciones Comunitarias y DD.HH.</h4>
+                        <p class="text-xs md:text-sm leading-relaxed">
+                            Frente a la miseria y el desempleo masivo, surgieron las Ollas Comunes y los Comedores Populares. En el ámbito de los derechos humanos, la Agrupación de Familiares de Detenidos Desaparecidos (AFDD) y la Vicaría de la Solidaridad denunciaron incansablemente los crímenes de estado, mientras las <strong>Arpilleristas</strong> bordaban historias de dolor y resistencia social que recorrieron el mundo.
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-sky-400">El Plebiscito de 1988 y la Campaña del "NO"</h4>
+                        <p class="text-xs md:text-sm leading-relaxed">
+                            Tras masivas Jornadas de Protesta Nacional en los años 80, la presión social e internacional forzó la realización del Plebiscito del 5 de octubre de 1988. La victoria de la opción <strong>NO</strong> (54.7%) derrotó en las urnas la continuidad de Pinochet, abriendo el camino para las elecciones democráticas de 1989 y el fin del régimen dictatorial en marzo de 1990.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO IV -->
+        <section id="musica-resistencia" class="scroll-mt-24 space-y-8">
+            <div class="border-l-4 border-amber-400 pl-4">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Capítulo IV</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white">Música y Resistencia Cultural</h2>
+                <p class="text-slate-400 text-sm md:text-base mt-1">El arte como refugio, denuncia e identidad invencible</p>
+            </div>
+
+            <p class="text-slate-300 leading-relaxed text-sm md:text-base">
+                Frente al toque de queda, la censura y la represión, el arte y la música se convirtieron en el lenguaje clandestino del pueblo chileno para mantener viva la memoria, la esperanza y la exigencia de libertad.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Victor Jara -->
+                <div class="bg-slate-900/90 rounded-2xl border-2 border-rose-500/50 overflow-hidden flex flex-col hover:border-rose-400 transition group shadow-lg shadow-rose-950/50">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="OFF/victor_jara.jpg" alt="Víctor Jara" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x500/0f172a/e2e8f0?text=Victor+Jara'">
+                        <span class="absolute top-3 right-3 bg-rose-500 text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded-md shadow">
+                            Audio Disponible
+                        </span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-rose-400 transition">Víctor Jara</h3>
+                            <span class="text-xs font-semibold text-rose-400">Nueva Canción Chilena</span>
+                            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+                                Cantautor, poeta y director teatral. Detenido y brutalmente asesinado en el Estadio Chile en septiembre de 1973. Sus canciones como <i>"El derecho de vivir en paz"</i> y <i>"Plegaria a un labrador"</i> se convirtieron en himnos universales de dignidad.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950 border border-rose-500/30 rounded-xl p-3 space-y-2">
+                            <div class="flex items-center space-x-2 text-xs font-bold text-rose-300">
+                                <i class="fa-solid fa-compact-disc animate-spin" style="animation-duration: 4s;"></i>
+                                <span class="truncate">El derecho de vivir en paz</span>
+                            </div>
+                            <audio controls class="w-full h-8 rounded-lg text-xs" style="filter: invert(0.9) hue-rotate(320deg);">
+                                <source src="OFF/Victor_(mp3.pm).mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Violeta Parra -->
+                <div class="bg-slate-900/90 rounded-2xl border-2 border-amber-500/50 overflow-hidden flex flex-col hover:border-amber-400 transition group shadow-lg shadow-amber-950/50">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="OFF/violeta.jpg" alt="Violeta Parra" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x500/0f172a/e2e8f0?text=Violeta+Parra'">
+                        <span class="absolute top-3 right-3 bg-amber-500 text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded-md shadow">
+                            Audio Disponible
+                        </span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition">Violeta Parra</h3>
+                            <p class="text-xs font-semibold text-amber-400">Matriarca del Folclor</p>
+                            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+                                Investigadora y creadora fundamental. Rescató la identidad campesina y compuso obras inmortales de crítica social humana como <i>"Miren cómo sonríen"</i>, <i>"Me gustan los estudiantes"</i> y <i>"Gracias a la vida"</i>.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950 border border-amber-500/30 rounded-xl p-3 space-y-2">
+                            <div class="flex items-center space-x-2 text-xs font-bold text-amber-300">
+                                <i class="fa-solid fa-compact-disc animate-spin" style="animation-duration: 4s;"></i>
+                                <span class="truncate">Miren cómo sonríen</span>
+                            </div>
+                            <audio controls class="w-full h-8 rounded-lg text-xs" style="filter: invert(0.9) hue-rotate(45deg);">
+                                <source src="OFF/Violeta_(mp3.pm).mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Los Prisioneros -->
+                <div class="bg-slate-900/90 rounded-2xl border-2 border-sky-500/50 overflow-hidden flex flex-col hover:border-sky-400 transition group shadow-lg shadow-sky-950/50">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="OFF/5.jpg" alt="Los Prisioneros - Pateando Piedras" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x500/0f172a/e2e8f0?text=Los+Prisioneros'">
+                        <span class="absolute top-3 right-3 bg-sky-500 text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded-md shadow">
+                            Audio Disponible
+                        </span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition">Los Prisioneros</h3>
+                            <p class="text-xs font-semibold text-sky-400">Rock & Punk en Dictadura</p>
+                            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+                                Oriundos de la comuna popular de San Miguel. En los años 80 desafiaron la censura de la dictadura con letras punzantes como <i>"El baile de los que sobran"</i>, <i>"¿Quién mató a Marilyn?"</i> y <i>"La voz de los '80"</i>.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950 border border-sky-500/30 rounded-xl p-3 space-y-2">
+                            <div class="flex items-center space-x-2 text-xs font-bold text-sky-300">
+                                <i class="fa-solid fa-compact-disc animate-spin" style="animation-duration: 4s;"></i>
+                                <span class="truncate">La voz de los '80</span>
+                            </div>
+                            <audio controls class="w-full h-8 rounded-lg text-xs" style="filter: invert(0.9) hue-rotate(180deg);">
+                                <source src="OFF/Los_Prisioneros(mp3.pm).mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Los Jaivas -->
+                <div class="bg-slate-900/90 rounded-2xl border-2 border-emerald-500/50 overflow-hidden flex flex-col hover:border-emerald-400 transition group shadow-lg shadow-emerald-950/50">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="OFF/Los-Jaivas.webp" alt="Los Jaivas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x500/0f172a/e2e8f0?text=Los+Jaivas'">
+                        <span class="absolute top-3 right-3 bg-emerald-500 text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded-md shadow">
+                            Audio Disponible
+                        </span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition">Los Jaivas</h3>
+                            <p class="text-xs font-semibold text-emerald-400">Fusión Prog-Andina</p>
+                            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+                                Grupo de viñamarinos que unió la psicodelia, el rock progresivo y los instrumentos autóctonos andinos. Su obra maestra <i>"Alturas de Macchu Picchu"</i> y canciones como <i>"Todos Juntos"</i> mantuvieron vivos la hermandad y el espíritu latinoamericano.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950 border border-emerald-500/30 rounded-xl p-3 space-y-2">
+                            <div class="flex items-center space-x-2 text-xs font-bold text-emerald-300">
+                                <i class="fa-solid fa-compact-disc animate-spin" style="animation-duration: 4s;"></i>
+                                <span class="truncate">Todos Juntos - Los Jaivas</span>
+                            </div>
+                            <audio controls class="w-full h-8 rounded-lg text-xs" style="filter: invert(0.9) hue-rotate(90deg);">
+                                <source src="OFF/Los_Jaivas(mp3.pm).mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CAPÍTULO V: SECCIÓN PRINCIPAL DE CHOPPER CON SALTO EN DOBLE CLICK -->
+        <section id="one-piece-simbolismo" class="scroll-mt-24 space-y-12">
+            <div class="border-l-4 border-sky-500 pl-4">
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Capítulo V</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white">Simbología Político-Social de One Piece</h2>
+                <p class="text-slate-400 text-sm md:text-base mt-1">El Sombrero de Paja, el Jolly Roger y la lucha libertaria</p>
+            </div>
+
+            <!-- AQUÍ ESTÁ CHOPPER DESTACADO -->
+            <div class="bg-slate-900/60 rounded-3xl p-8 border border-slate-800 text-center space-y-6 sky-glow relative">
+                <div class="inline-block relative group">
+                    <img src="OFF/6.png" 
+                         alt="Tony Tony Chopper" 
+                         class="chopper-interactive h-32 md:h-44 mx-auto object-contain drop-shadow-[0_0_20px_rgba(236,72,153,0.5)] cursor-pointer transition-transform hover:scale-105 select-none" 
+                         ondblclick="makeChopperJump(this)"
+                         title="¡Haz doble clic en Chopper para verlo saltar!"
+                         onerror="this.src='https://placehold.co/300x300/0f172a/e2e8f0?text=Chopper'">
+                </div>
+                
+                <p class="text-xs md:text-sm font-bold text-pink-400 animate-pulse">
+                    ✨ ¡Haz doble clic sobre Chopper arriba o en el menú para verlo saltar! ✨
+                </p>
+
+                <p class="text-slate-300 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+                    Más allá del entretenimiento, la obra de Eiichiro Oda es un profundo espejo de las luchas políticas del mundo real: el racismo estructural, la manipulación mediática, el borrado de la historia (el "Siglo Vacío") y la tiranía del <strong>Gobierno Mundial</strong> y los <strong>Tenryuubito</strong> (clase noble absolutista e intocable).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800 space-y-4">
+                    <div class="overflow-hidden rounded-xl h-60">
+                        <img src="OFF/Luffy.jpg" alt="Luffy levantando la bandera de la libertad en Drum" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/0f172a/e2e8f0?text=Luffy+Bandera+Drum'">
+                    </div>
+                    <h3 class="text-2xl font-bold text-amber-400">Luffy: Liberador de Pueblos Oprimidos</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        A través de su travesía, Monkey D. Luffy jamás busca conquistar territorios ni gobernar a otros. Sin embargo, en cada isla derroca a dictadores tiranos:
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                        <li><strong>Wapol (Isla Drum):</strong> Restableciendo la medicina pública e izando la bandera de la calavera con pétalos de cerezo del Dr. Hiruluk.</li>
+                        <li><strong>Crocodile (Alabasta) y Doflamingo (Dressrosa):</strong> Desenmascarando a dictadores que manipularon la verdad e instalaron regímenes del terror.</li>
+                        <li><strong>Kaido y Orochi (Wano):</strong> Liberando a un pueblo esclavizado en fábricas de armas y privado del derecho básico a comer sin veneno.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800 space-y-4">
+                    <div class="overflow-hidden rounded-xl h-60">
+                        <img src="OFF/Revolucionarios.jpg" alt="El Ejército Revolucionario de One Piece" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/0f172a/e2e8f0?text=Ejercito+Revolucionario'">
+                    </div>
+                    <h3 class="text-2xl font-bold text-rose-500">El Ejército Revolucionario</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Encabezado por <strong>Monkey D. Dragon</strong>, <strong>Sabo</strong> y figuras como <strong>Belo Betty</strong> (cuya fruta del diablo <i>Pobo Pobo no Mi</i> despierta el espíritu de lucha del pueblo), el Ejército Revolucionario combate directamente la raíz del mal: la tiranía del Gobierno Mundial y la opresión feudal de los Tenryuubito.
+                    </p>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        No luchan contra los reinos en sí, sino contra los impuestos celestiales e injustices que condenan a la miseria a las naciones vulnerables.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="bg-slate-900/60 rounded-3xl p-6 md:p-8 border border-slate-800 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <span class="text-xs font-bold text-sky-400 uppercase tracking-widest bg-sky-950 border border-sky-800 px-3 py-1 rounded-md">
+                        Símbolo Global en Protestas Reales
+                    </span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white">El Jolly Roger del Sombrero de Paja en la Calle</h3>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                        En protestas sociales contemporáneas alrededor del globo —desde las movilizaciones en Chile e Indonesia hasta marchas por la paz y contra el autoritarismo militar— la bandera de los Mugiwara flamea junto a las exigencias ciudadanas.
+                    </p>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Representa la determinación de no rendirse ante fuerzas desmedidas y la fe en que la voluntad heredada traspasará fronteras para alcanzar un mundo libre y justo.
+                    </p>
+                </div>
+                <div class="rounded-2xl overflow-hidden border border-slate-700">
+                    <img src="OFF/4.jpeg" alt="Bandera de One Piece izada en manifestación social" class="w-full h-72 md:h-80 object-cover" onerror="this.src='https://placehold.co/800x600/0f172a/e2e8f0?text=Protesta+Simbolo+One+Piece'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN LA PEOR GENERACIÓN -->
+        <section id="peor-generacion" class="scroll-mt-24">
+            <div class="bg-gradient-to-br from-slate-900 via-rose-950/40 to-slate-950 rounded-3xl p-6 md:p-12 border border-rose-500/30 red-glow space-y-10">
+
+                <div class="max-w-3xl space-y-4">
+                    <div class="inline-flex items-center space-x-2 bg-rose-950 border border-rose-800 text-rose-300 text-xs px-3 py-1 rounded-md font-bold uppercase">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Analogía Sociopolítica Actual</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-black text-white">"La Peor Generación"</h2>
+                    <p class="text-amber-300 font-medium text-base md:text-lg">
+                        De los Supernovas del Archipiélago Sabaody a la Generación Z en tiempos de crisis global
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="rounded-2xl overflow-hidden border border-slate-700 gold-glow">
+                        <img src="OFF/Arco_del_Archipi.webp" alt="Los Supernovas / La Peor Generación en Sabaody" class="w-full h-auto object-cover" onerror="this.src='OFF/Arco_del_Archipi.webp'">
+                        <p class="text-xs text-slate-400 p-3 italic text-center bg-slate-950">Los 11 Supernovas reunidos en el Archipiélago Sabaody desafiando la autoridad militar del Gobierno Mundial.</p>
+                    </div>
+
+                    <div class="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed">
+                        <h3 class="text-xl font-bold text-white">¿Por qué las autoridades los llaman "La Peor"?</h3>
+                        <p>
+                            En el universo de Oda, la marina y el Gobierno Mundial acuñaron el nombre peyorativo de <strong class="text-rose-400">"La Peor Generación"</strong> (<i>Worst Generation</i>) para referirse al grupo de jóvenes capitanes que irrumpieron simultáneamente rompiendo las reglas del antiguo sistema.
+                        </p>
+                        <p>
+                            Eran catalogados como destructivos y peligrosos no por ser malvados, sino porque <strong>no temían desafiar el orden establecido, exponer la corrupción de las élites intocables y rechazar la obediencia ciega.</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950/80 rounded-2xl p-6 border border-slate-800 space-y-4">
+                    <h3 class="text-xl font-bold text-amber-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <span>La Empatía y la Conciencia Social como Acto de Rebeldía</span>
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Hoy en día, sectores conservadores o nostálgicos del viejo orden acusan a la <strong>Generación Z</strong> de ser "la peor generación": los critican por movilizarse, por rechazar las guerras, por exigir justicia social y por no resignarse a las desigualdades económicas.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs">
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                            <h4 class="font-bold text-rose-400 mb-1">Incomodar al Poder</h4>
+                            <p class="text-slate-400">Exigir memoria histórica, verdad y justicia siempre resulta incómodo para quienes se benefician del silencio y el olvido.</p>
+                        </div>
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                            <h4 class="font-bold text-amber-400 mb-1">Sensibilidad Activa</h4>
+                            <p class="text-slate-400">Frente al cinismo y la violencia, mantener viva la empatía hacia pueblos agredidos es la forma más radical de resistencia.</p>
+                        </div>
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                            <h4 class="font-bold text-sky-400 mb-1">Un Mismo Hilo de Libertad</h4>
+                            <p class="text-slate-400">Desde el "Baile de los que sobran" en los 80 hasta la bandera de Luffy hoy, la voz de la juventud no puede ser acallada.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CAPÍTULO VI: MINI CUESTIONARIO INTERACTIVO -->
+        <section id="cuestionario" class="scroll-mt-24 space-y-8">
+            <div class="border-l-4 border-amber-400 pl-4">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Capítulo VI</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white">Mini Cuestionario de Evaluación</h2>
+                <p class="text-slate-400 text-sm md:text-base mt-1">Pon a prueba tus conocimientos sobre la Dictadura Militar en Chile y la Resistencia Cultural</p>
+            </div>
+
+            <div class="bg-slate-900/90 rounded-3xl p-6 md:p-10 border border-slate-800 space-y-8">
+                <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                    <span class="text-sm font-semibold text-slate-300">Responde las siguientes preguntas:</span>
+                    <span id="score" class="text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full">Puntaje: 0 / 4</span>
+                </div>
+
+                <!-- Pregunta 1 -->
+                <div class="space-y-3 bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-base md:text-lg font-bold text-white">1. ¿En qué consistió la "Vía Chilena al Socialismo" impulsada por Salvador Allende?</h3>
+                    <div class="space-y-2 text-xs md:text-sm">
+                        <button onclick="checkAnswer(1, 'A', false, this)" class="q1-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">A) Una revolución armada mediante la guerrilla urbana.</button>
+                        <button onclick="checkAnswer(1, 'B', true, this)" class="q1-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">B) La construcción del socialismo dentro del marco institucional, democrático y constitucional.</button>
+                        <button onclick="checkAnswer(1, 'C', false, this)" class="q1-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">C) Un modelo dictatorial de partido único controlado externamente.</button>
+                    </div>
+                    <p id="feedback-1" class="hidden text-xs mt-2 p-2 rounded-lg"></p>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div class="space-y-3 bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-base md:text-lg font-bold text-white">2. ¿Qué fue la "Operación Cóndor"?</h3>
+                    <div class="space-y-2 text-xs md:text-sm">
+                        <button onclick="checkAnswer(2, 'A', false, this)" class="q2-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">A) Una alianza económica para promover la industria del cobre sudamericano.</button>
+                        <button onclick="checkAnswer(2, 'B', false, this)" class="q2-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">B) Un tratado de defensa pacífica entre países latinoamericanos y la ONU.</button>
+                        <button onclick="checkAnswer(2, 'C', true, this)" class="q2-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">C) Una red clandestina represiva de las dictaduras del Cono Sur para perseguir y secuestrar opositores transfronterizos.</button>
+                    </div>
+                    <p id="feedback-2" class="hidden text-xs mt-2 p-2 rounded-lg"></p>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div class="space-y-3 bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-base md:text-lg font-bold text-white">3. ¿Qué rol cumplió la banda Los Prisioneros durante la década de 1980?</h3>
+                    <div class="space-y-2 text-xs md:text-sm">
+                        <button onclick="checkAnswer(3, 'A', true, this)" class="q3-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">A) Desafiaron la censura con letras de crítica social y juvenil como "El baile de los que sobran".</button>
+                        <button onclick="checkAnswer(3, 'B', false, this)" class="q3-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">B) Apoyaron la propaganda oficial del régimen en programas de televisión.</button>
+                        <button onclick="checkAnswer(3, 'C', false, this)" class="q3-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">C) Se dedicaron exclusivamente al folclor instrumental sin letras políticas.</button>
+                    </div>
+                    <p id="feedback-3" class="hidden text-xs mt-2 p-2 rounded-lg"></p>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div class="space-y-3 bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                    <h3 class="text-base md:text-lg font-bold text-white">4. ¿Qué hito marcó el fin de la continuidad de Augusto Pinochet en 1988?</h3>
+                    <div class="space-y-2 text-xs md:text-sm">
+                        <button onclick="checkAnswer(4, 'A', false, this)" class="q4-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">A) El acuerdo de rendición firmado tras el bombardeo a La Moneda.</button>
+                        <button onclick="checkAnswer(4, 'B', true, this)" class="q4-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">B) El Plebiscito del 5 de octubre de 1988 donde triunfó la opción "NO" con un 54.7%.</button>
+                        <button onclick="checkAnswer(4, 'C', false, this)" class="q4-btn w-full text-left p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">C) La promulgación inmediata de una nueva constitución democrática por parte de las FFAA.</button>
+                    </div>
+                    <p id="feedback-4" class="hidden text-xs mt-2 p-2 rounded-lg"></p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 border-t border-slate-800 py-10 px-4 text-center text-slate-500 text-xs">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <div class="flex justify-center items-center space-x-3">
+                <!-- CHOPPER EN EL FOOTER -->
+                <img src="6_5.png" 
+                     alt="Tony Tony Chopper Logo" 
+                     class="chopper-interactive h-10 object-contain cursor-pointer opacity-80 hover:opacity-100 transition select-none" 
+                     ondblclick="makeChopperJump(this)"
+                     title="¡Haz doble clic en Chopper para hacerlo saltar!"
+                     onerror="this.style.display='none'">
+                <span class="font-cinzel text-slate-400 font-bold">MEMORIA, MÚSICA Y LIBERTAD</span>
+            </div>
+            <p class="leading-relaxed">
+                Plataforma web educativa e interdisciplinaria. Contenidos creados para el análisis de la Historia de Chile, la Nueva Canción Chilena, el Rock de Resistencia y la Simbología Sociopolítica de la Cultura Pop.
+            </p>
+            <p class="text-slate-600">
+                © 2026 - Para que nunca más en Chile y el mundo.
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACCIÓN -->
+    <script>
+        function makeChopperJump(element) {
+            // Eliminar clase si la tenía
+            element.classList.remove('animate-chopper-jump');
+            
+            // Forzar reflow para reiniciar la animación CSS
+            void element.offsetWidth;
+            
+            // Agregar la clase de animación
+            element.classList.add('animate-chopper-jump');
+
+            // Quitar clase tras finalizar la animación (600ms)
+            setTimeout(() => {
+                element.classList.remove('animate-chopper-jump');
+            }, 600);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        let currentScore = 0;
+        const answeredQuestions = {};
+
+        function checkAnswer(qNum, option, isCorrect, element) {
+            if (answeredQuestions[qNum]) return;
+
+            answeredQuestions[qNum] = true;
+            const buttons = document.querySelectorAll(`.q${qNum}-btn`);
+            const feedback = document.getElementById(`feedback-${qNum}`);
+
+            buttons.forEach(btn => btn.disabled = true);
+
+            if (isCorrect) {
+                element.classList.remove('bg-slate-900', 'hover:bg-slate-800');
+                element.classList.add('bg-emerald-950', 'border-emerald-500', 'text-emerald-200');
+                feedback.textContent = "¡Correcto! Respuesta acertada.";
+                feedback.classList.remove('hidden');
+                feedback.classList.add('bg-emerald-950/80', 'text-emerald-300', 'border', 'border-emerald-500/30');
+                currentScore++;
+            } else {
+                element.classList.remove('bg-slate-900', 'hover:bg-slate-800');
+                element.classList.add('bg-rose-950', 'border-rose-500', 'text-rose-200');
+                feedback.textContent = "Incorrecto. Revisa el contenido del capítulo correspondiente.";
+                feedback.classList.remove('hidden');
+                feedback.classList.add('bg-rose-950/80', 'text-rose-300', 'border', 'border-rose-500/30');
+            }
+
+            document.getElementById('score').textContent = `Puntaje: ${currentScore} / 4`;
+        }
+    </script>
+</body>
+</html>
